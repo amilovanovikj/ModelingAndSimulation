@@ -1,3 +1,5 @@
+# Example simulations using the model
+
 from CovidSimulation import *
 import time
 import json
@@ -42,7 +44,7 @@ print("The number of connected components in the graph is {}".format(len(list(nx
 print("The diameter of the graph is {}".format(nx.algorithms.distance_measures.diameter(G)))
 print("The average clustering coefficient of the graph is {}".format(nx.algorithms.cluster.average_clustering(G)))
 
-### Now we will test the graph based simulations on the graphs G and F (without and with family) for different sets of hyperparameters in order to see the effect of each. We will also test for dynamic changes (quarantines). All tests will be done on a span of 500 days. 
+Now we will test the graph based simulations on the graphs G and F (without and with family) for different sets of hyperparameters in order to see the effect of each. We will also test for dynamic changes (quarantines). All tests will be done on a span of 500 days. 
 
 # Testing on G (no family) with and without quarantines
 set_initial_exposed = [5, 10]
