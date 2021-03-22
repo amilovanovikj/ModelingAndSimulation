@@ -433,6 +433,6 @@ def slider_simulation(G, params, slide_by='beta', values=np.arange(1, 3, 0.5), s
         currentvalue={"prefix": f"{slide_by}: "},
         pad={"t": 50},
         steps=steps)]
-    fig.update_layout(sliders=sliders, template="plotly_white", showlegend=True, width=950, height=625)
+    fig.update_layout(sliders=sliders, template="plotly_white", showlegend=True, width=750, height=575)
     plot(fig, filename = 'fig.html', config = config)
     display(HTML('fig.html'))
