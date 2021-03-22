@@ -1,0 +1,9 @@
+- file: intro
+  title: "Introduction"
+
+- part: "Contents"
+  chapters:
+  - file: InteractiveNotebook
+    title: "Code for the model"
+  - file: FinalSimulationResultsNotebook
+    title: "Example simulations using the model"
