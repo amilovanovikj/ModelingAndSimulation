@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; Modeling and simulation of COVID-19 spread within a complex network that includes families, friends and acquaintances</title>
+    <title>Introduction &#8212; Modelling and simulation of COVID-19 spread within a complex network that includes families, friends and acquaintances</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -78,7 +78,7 @@
   <img src="_static/logo.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">Modeling and simulation of COVID-19 spread within a complex network that includes families, friends and acquaintances</h1>
+  <h1 class="site-logo" id="site-title">Modelling and simulation of COVID-19 spread within a complex network that includes families, friends and acquaintances</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -192,6 +192,21 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References:
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -202,8 +217,37 @@
                 
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>TODO: Add proper introduction</p>
+<p>In this work we present numerous simulations done on a complex network using a SEIRS model for COVID-19 spread. The network contains edges that represent one of three different types of connections between nodes (people) in the network: family, friends and acquaintances. The construction of the network, regarding the friend and acquaintance type of connection, is done using the LFR benchmark algorithm, and further extended to include family connections. It should be noted that each node is in contact with each family member on daily basis, while the contacts with friends and acquaintances is controlled by a parameter in the simulation (a node contacts its friends more often than its acquaintances). The simulations done on these networks include a large number of parameters:</p>
+<ul class="simple">
+<li><p><strong>family</strong>: boolean that indicates whether families are added to the graph and if the simulation should include them or not</p></li>
+<li><p><strong>num_days</strong>: integer specifying how many iterations (days) should the simulation last</p></li>
+<li><p><strong>initial_exposed</strong>: number of initially exposed nodes</p></li>
+<li><p><strong>beta</strong>: the infection rate</p></li>
+<li><p><strong>num_quarantines</strong>: integer that indicates how many quarantines (periods when contacts are restricted) should be added to the simulation (at regular intervals)</p></li>
+<li><p><strong>quarantine_len</strong>: integer specifying the number of days each quarantine should include</p></li>
+<li><p><strong>t_ei</strong>: integer indicating the time (in days) for an exposed person to become infectious</p></li>
+<li><p><strong>t_rs</strong>: integer indicating the time (in days) for a recovered person to become susceptible again</p></li>
+<li><p><strong>reinfection</strong>: percentage of nodes that can become susceptible again after recovering</p></li>
+<li><p><strong>comm_talk_freq</strong>: integer that specifies the average number of days needed for one node to contact all nodes that are labeled as friends</p></li>
+<li><p><strong>comm_talk_freq_change</strong>: integer indicating the step (in days) with which nodes reduce/increase contact rates with friends when there are/aren’t restictions in effect</p></li>
+<li><p><strong>other_talk_freq</strong>: integer that specifies the average number of days needed for one node to contact all nodes that are labeled as acquaintances</p></li>
+<li><p><strong>other_talk_freq_change</strong>: integer indicating the step (in days) with which nodes reduce/increase contact rates with acquaintances when there are/aren’t restictions in effect</p></li>
+<li><p><strong>p_er</strong>: probability for an exposed node to be asymptomatic, thus transitioning directly into recovered state (not becoming infectious)</p></li>
+<li><p><strong>gray_mass</strong>: probability of a node randomly becoming exposed, without a direct contact with an infectious node (usually a very low number)</p></li>
+</ul>
+<p>As an addition, we made the simulations interactive, adding a slider for any parameter of choice that will be used to control given values for that parameter. This way we can easily identify how changing that particular parameter affects the outcome of the virus spread, while keeping all other parameters constant.</p>
+<div class="section" id="references">
+<h2>References:<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Lancichinetti%E2%80%93Fortunato%E2%80%93Radicchi_benchmark">LFR benchmark graph</a></p></li>
+<li><p><a class="reference external" href="https://www.statista.com/statistics/242189/disitribution-of-households-in-the-us-by-household-size/">Distribution of households in the US</a></p></li>
+<li><p><a class="reference external" href="http://med.stanford.edu/content/dam/sm/id/documents/COVID/AsymptCOVID_TransmissionShip.pdf">Proportion of asymptomatic cases</a></p></li>
+<li><p><a class="reference external" href="https://www.nejm.org/doi/full/10.1056/NEJMoa2034545">Length of immunity to reinfection after recovering</a></p></li>
+<li><p><a class="reference external" href="https://www.medrxiv.org/content/10.1101/2020.04.17.20069724v1.full.pdf?fbclid=IwAR0C_O-aZqGgcmmOnHkI3Eo_joKPsxjvClSgL5SvLFFNEhuNYzX-1Filvqo">Length of recovery period and modelling with negative binomial distribution</a></p></li>
+<li><p><a class="reference external" href="https://www.acpjournals.org/doi/full/10.7326/M20-0504">Length of incubation period</a></p></li>
+</ul>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 

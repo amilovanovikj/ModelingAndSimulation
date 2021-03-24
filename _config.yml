@@ -1,4 +1,4 @@
-title: Modeling and simulation of COVID-19 spread within a complex network that includes families, friends and acquaintances
+title: Modelling and simulation of COVID-19 spread within a complex network that includes families, friends and acquaintances
 author: Andrej Milovanovikj, Marko Bogoevski
 logo: logo.png
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
