@@ -117,7 +117,6 @@ def plot_graph(G):
     nx.draw_networkx_edges(G, pos=pos, ax=ax, edge_color="#a2a2a2", alpha=.75)
     plt.legend()
 
-
 ### Definition of utility functions, mainly for compartmental model plus graph generation and family integration
 
 To predict the potential severity of outbreaks of infectious diseases such as SARS, HIV, TB and smallpox, a summary parameter, the basic reproduction number R0, is generally calculated from a population-level model. R0 specifies the average number of secondary infections caused by one infected individual during his/her entire infectious period at the start of an outbreak. R0 isused to assess the severity of the outbreak, as well as the strength of the medical and/or behavioral interventions necessary forcontrol. Conventionally, it is assumed that if R0>1 the outbreak generates an epidemic, and if R0<1 the outbreak becomes extinct. 
@@ -659,7 +658,7 @@ def slider_simulation(G, params, slide_by='beta', values=np.arange(1, 3, 0.5), s
     :return: None
     """
     num_days = params["num_days"]
-    fig = go.Figure(layout=dict(title="SEIR model, number of days: {}, {}: {} ".format(num_days, slide_by, values[0])))
+    fig = go.Figure(layout=dict(title="SEIRS model, number of days: {}, {}: {} ".format(num_days, slide_by, values[0])))
     x = list(range(0, num_days + 1))
     for v in values:
         params[slide_by] = v
