@@ -16,6 +16,7 @@ In this work we present numerous simulations done on a complex network using a S
 - "other_talk_freq_change": integer indicating the step (in days) with which nodes reduce/increase contact rates with acquaintances when there are/aren't restictions in effect
 - "p_er": probability for an exposed node to be asymptomatic, thus transitioning directly into recovered state (not becoming infectious)
 - "gray_mass": probability of a node randomly becoming exposed, without a direct contact with an infectious node (usually a very low number)
+
 As an addition, we made the simulations interactive, adding a slider for any parameter of choice that will be used to control given values for that parameter. This way we can easily identify how changing that particular parameter affects the outcome of the virus spread, while keeping all other parameters constant. 
 
 ### References:
