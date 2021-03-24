@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from copy import deepcopy
 from plotly.offline import plot
+from collections import Counter
 from IPython.core.display import display, HTML
 config={'showLink': False, 'displayModeBar': False}
 
@@ -34,6 +35,7 @@ def plot_node_degree(graph):
     fig.set_size_inches(8, 5, forward=True)
     sns.distplot(deg, kde=True)
     ax.set_xticks(np.arange(0, 24, 2))
+    plt.title("Degree distribution of the number of edges")
     plt.show()
 
 
@@ -55,6 +57,7 @@ def plot_community_degree(graph):
     fig.set_size_inches(8, 5, forward=True)
     sns.distplot(deg, kde=True)
     ax.set_xticks(np.arange(0, 20, 1))
+    plt.title("Degree distribution of the number of friendship edges")
     plt.show()
 
 
@@ -76,16 +79,17 @@ def plot_family_degree(graph):
     fig.set_size_inches(8, 5, forward=True)
     sns.distplot(deg, kde=True)
     ax.set_xticks(np.arange(0, 10, 1))
+    plt.title("Degree distribution of the number of family edges")
     plt.show()
 
 
 def plot_seir(sus, exp, inf, rec):
     """
     Plots a SEIR graph for simulation results
-    :param sus: List of number of sus at time step {index+1}
-    :param exp: List of number of exp at time step {index+1}
-    :param inf: List of number of inf at time step {index+1}
-    :param rec: List of number of rec at time step {index+1}
+    :param sus: List of number of susceptible at time step {index+1}
+    :param exp: List of number of exposed at time step {index+1}
+    :param inf: List of number of infectious at time step {index+1}
+    :param rec: List of number of recovered at time step {index+1}
     :return: None
     """
     plt.figure(figsize=(18, 10))
@@ -729,7 +733,7 @@ print("The average clustering coefficient of the graph is {}".format(nx.algorith
 
 # Visualizing initial exposure
 
-initial_exposed = 5
+initial_exposed = 3
 exposed = [rn.randint(0, num_nodes-1) for i in range(initial_exposed)]
 infected = []
 recovered = []
@@ -742,7 +746,7 @@ plot_graph(G)
 params = {
         "family": False,
         "num_days": 500,
-        "initial_exposed": 5,
+        "initial_exposed": 3,
         "beta": 0,
         "num_quarantines": 0,
         "quarantine_len": 0,
@@ -781,7 +785,7 @@ print("The average clustering coefficient of the graph is {}".format(nx.algorith
 params_2 = {
         "family": True,
         "num_days": 500,
-        "initial_exposed": 5,
+        "initial_exposed": 3,
         "beta": 0,
         "num_quarantines": 0,
         "quarantine_len": 0,
@@ -804,7 +808,7 @@ slider_simulation(F, params_2, slide_by="beta", values=np.arange(1,4,0.5))
 params_3 = {
         "family": True,
         "num_days": 500,
-        "initial_exposed": 5,
+        "initial_exposed": 3,
         "beta": 3,
         "num_quarantines": 10,
         "quarantine_len": 14,
@@ -824,3 +828,25 @@ slider_simulation(F, params_3, slide_by="beta", values=np.arange(1,4,0.5))
 
 # Making a slider simulation for beta=3 with number of quarantines as a dependent variable
 slider_simulation(F, params_3, slide_by="num_quarantines", values=np.arange(0,14,1))
+
+params_4 = {
+        "family": True,
+        "num_days": 500,
+        "initial_exposed": 1,
+        "beta": 3,
+        "num_quarantines": 10,
+        "quarantine_len": 14,
+        "t_ei": 8,
+        "t_rs": 150,
+        "reinfection": 0.17,
+        "comm_talk_freq": 6,
+        "comm_talk_freq_change": 2,
+        "other_talk_freq": 10,
+        "other_talk_freq_change": 2,
+        "p_er": 0.2,
+        "gray_mass": 0.0001
+    }
+
+# Making a slider simulation for beta=3 number of quarantines=10 and 
+# the number of initially exposed nodes as a dependent variable
+slider_simulation(F, params_4, slide_by="initial_exposed", values=np.arange(1,7,1))
